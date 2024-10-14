@@ -1,71 +1,97 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
-import { motion } from 'framer-motion';
+'use client'
 
-function Footer() {
+import React from 'react'
+// import Link from 'next/link'
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  }
+
+  const staggerChildren = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const socialLinks = [
+    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' }
+  ]
+
   return (
-    <footer className="bg-primary text-white py-4 px-5 mt-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        {/* Company Info */}
+    <footer className="bg-primary text-white py-8 px-4 mt-16">
+      <div className="container mx-auto">
         <motion.div 
-          className="text-center md:text-left mb-4 md:mb-0 space-y-1 md:space-y-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="initial"
+          animate="animate"
+          variants={staggerChildren}
         >
-          <motion.p 
-            className="text-lg font-bold" 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.2 }}
-          >
-            &copy; 2024 Apex International Traders
-          </motion.p>
-          <motion.p className="text-sm font-medium" {...fadeInWithDelay(0.3)}>
-            Address: Pune, India
-          </motion.p>
-          <motion.p className="text-sm font-medium" {...fadeInWithDelay(0.4)}>
-            Email: <Link to="mailto:apexinternational421@gmail.com" className="text-secondary hover:underline">apexinternational421@gmail.com</Link>
-          </motion.p>
-          <motion.p className="text-sm font-medium" {...fadeInWithDelay(0.5)}>
-            Phone: <span className="text-secondary">+91 8624987228</span>
-          </motion.p>
+          {/* Company Info */}
+          <motion.div variants={fadeInUp} className="space-y-4">
+            <h3 className="text-2xl font-bold mb-4">Apex International Traders</h3>
+            <p className="text-sm">&copy; {currentYear} All rights reserved</p>
+            <p className="text-sm">Empowering sustainable agriculture globally</p>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div variants={fadeInUp} className="space-y-4">
+            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+            <div className="flex items-center space-x-2">
+              <MapPin size={18} />
+              <p className="text-sm">Pune, India</p>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Mail size={18} />
+              <a href="mailto:apexinternational421@gmail.com" className="text-sm hover:text-secondary transition-colors">
+                apexinternational421@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Phone size={18} />
+              <p className="text-sm">+91 8624987228</p>
+            </div>
+          </motion.div>
+
+          {/* Social Media Links */}
+          <motion.div variants={fadeInUp} className="space-y-4">
+            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
+              {socialLinks.map((link, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+                    <link.icon className="w-6 h-6 hover:text-secondary transition-colors" />
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Social Media Links */}
+        {/* Bottom Bar */}
         <motion.div 
-          className="flex space-x-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-8 pt-4 border-t border-white/20 text-center text-sm"
+          variants={fadeInUp}
         >
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-            <Link to="https://facebook.com" className="hover:text-secondary transition-colors">
-              <Facebook className="w-6 h-6" />
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-            <Link to="https://linkedin.com" className="hover:text-secondary transition-colors">
-              <Linkedin className="w-6 h-6" />
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-            <Link to="https://instagram.com" className="hover:text-secondary transition-colors">
-              <Instagram className="w-6 h-6" />
-            </Link>
-          </motion.div>
+          <p>Designed and developed with ❤️ by Apex International Team</p>
         </motion.div>
       </div>
     </footer>
-  );
+  )
 }
 
-// Helper function for delayed animations
-const fadeInWithDelay = (delay) => ({
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay }
-});
-
-export default Footer;
+export default Footer
