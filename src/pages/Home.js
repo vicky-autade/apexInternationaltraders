@@ -5,6 +5,9 @@ import { Leaf, Sun, Droplets } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Carousel from 'react-multi-carousel'; // Add a react carousel package
 import 'react-multi-carousel/lib/styles.css'; // Carousel styles
+import  { useEffect } from 'react'; // Import useEffect
+import { useLocation } from 'react-router-dom';
+
 
 function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,6 +18,12 @@ function Home() {
     transition: { duration: 0.6 }
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, [location]); 
+  
   const fadeIn = (delay = 0) => ({
     initial: { opacity: 0 },
     animate: { opacity: 1 },

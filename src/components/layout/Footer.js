@@ -25,7 +25,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
     { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' }
+    { icon: Instagram, href: 'https://www.instagram.com/apex_international_traders?igsh=MXgxYzZxdzR5ZDZkcw==', label: 'Instagram' }
   ]
 
   return (
