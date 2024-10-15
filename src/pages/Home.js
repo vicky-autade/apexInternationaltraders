@@ -133,7 +133,7 @@ function Home() {
   </motion.p>
   
   <motion.p className="text-lg text-gray-700 mb-4" {...fadeIn(0.4)}>
-    We specialize in a wide range of products including frozen vegetables, dehydrated onions, and organic spices. 
+    We specialize in a wide range of products including frozen sweet corn, green peas,  vegetables, dehydrated onions, and organic spices. 
   </motion.p>
   
   <Link to="/about">
