@@ -23,8 +23,8 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61566081538005&mibextid=ZbWKwL', label: 'Facebook' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/rupali-autade-0b806832b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/apex_international_traders?igsh=MXgxYzZxdzR5ZDZkcw==', label: 'Instagram' }
   ]
 
