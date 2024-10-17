@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu } from 'lucide-react';
+import logo from '../../image/apex_logo_page.jpg';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,10 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -28,27 +35,36 @@ function Header() {
       } text-white py-6 sticky top-0 z-50 transition-all duration-300 ease-in-out`}
       style={{
         fontWeight: 'bold',
-        padding: '20px',  // Consistent padding
-        height: '80px',   // Set a fixed height
-        display: 'flex',  // Ensure proper layout
-        alignItems: 'center',  // Center content vertically
+        padding: '10px 20px',
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      <nav className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-        {/* Logo */}
+      <nav className="container mx-auto flex justify-between items-center max-w-7xl">
+        {/* Logo and Company Name */}
         <motion.div
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ type: 'spring', stiffness: 120 }}
+          className="flex items-center"
         >
-          <Link to="/" className="text-3xl font-extrabold mb-4 sm:mb-0 tracking-wide">
-            Apex International Traders
+          <Link to="/" className="flex items-center space-x-1">
+            <img 
+              src={logo} 
+              alt="Apex International Traders Logo" 
+              className="h-20 w-40 mr-1"
+              style={{ mixBlendMode: 'multiply', objectFit: 'cover'}}
+            />
+            <span className="text-2xl font-extrabold tracking-wide hidden sm:inline whitespace-nowrap">
+              Apex International Traders
+            </span>
           </Link>
         </motion.div>
 
-        {/* Navigation Links */}
+        {/* Desktop Navigation Links */}
         <motion.ul
-          className="flex space-x-6"
+          className="hidden md:flex space-x-6"
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', stiffness: 120, delay: 0.2 }}
@@ -86,7 +102,54 @@ function Header() {
             </Link>
           </motion.li>
         </motion.ul>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          className="md:hidden text-white"
+          onClick={toggleMobileMenu}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          <Menu size={24} />
+        </motion.button>
       </nav>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-20 left-0 right-0 bg-primary"
+          >
+            <ul className="flex flex-col items-center py-4">
+              <li className="my-2">
+                <Link to="/" className="text-lg hover:text-secondary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Home
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link to="/about" className="text-lg hover:text-secondary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  About Us
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link to="/products" className="text-lg hover:text-secondary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Our Products
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link to="/contact" className="text-lg hover:text-secondary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
