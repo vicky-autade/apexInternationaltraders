@@ -29,13 +29,14 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-primary text-white py-8 px-4 mt-16">
+    <footer className="bg-white text-dark py-8 px-4 mt-16 " style={{borderTop:'solid 2px rgba(128, 128, 128, 0.8)'}}>
       <div className="container mx-auto">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="initial"
           animate="animate"
           variants={staggerChildren}
+
         >
           {/* Company Info */}
           <motion.div variants={fadeInUp} className="space-y-4">
