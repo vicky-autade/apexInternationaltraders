@@ -2,6 +2,7 @@
 
 import React from 'react'
 // import Image from 'next/image'
+// demo added
 import { motion, useScroll, useTransform } from 'framer-motion'
 import {
   Leaf,
