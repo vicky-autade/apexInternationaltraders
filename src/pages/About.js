@@ -47,6 +47,7 @@ export default function About() {
       <motion.h1
         className="text-5xl md:text-6xl font-bold mb-12 text-primary text-center"
         variants={fadeInUp}
+        style={{color:'rgb(60, 61, 55)'}}
       >
         About Apex International Traders
       </motion.h1>

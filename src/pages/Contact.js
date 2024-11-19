@@ -24,6 +24,7 @@ function Contact() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          style={{color:'rgb(60, 61, 55)'}}
         >
           Contact Us
         </motion.h1>

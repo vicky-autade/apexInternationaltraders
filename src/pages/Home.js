@@ -42,20 +42,20 @@ function Home() {
 
   // Add video data
   const videos = [
-    { src: require('../videos/1.mp4'), title: 'our products' },
-    { src: require('../videos/2.mp4'), title: 'our products' },
-    { src: require('../videos/3.mp4'), title: 'our products' },
-    { src: require('../videos/4.mp4'), title: 'our products' },
-    // { src: require('../videos/5.mp4'), title: '' },
-    // { src: require('../videos/6.mp4'), title: '' },
-    { src: require('../videos/7.mp4'), title: 'our products' },
-    { src: require('../videos/8.mp4'), title: 'our products' },
+    // { src: require('../videos/1.mp4'), title: 'our products' },
+    // { src: require('../videos/2.mp4'), title: 'our products' },
+    // { src: require('../videos/3.mp4'), title: 'our products' },
+    // { src: require('../videos/4.mp4'), title: 'our products' },
+    // // { src: require('../videos/5.mp4'), title: '' },
+    // // { src: require('../videos/6.mp4'), title: '' },
+    // { src: require('../videos/7.mp4'), title: 'our products' },
+    // { src: require('../videos/8.mp4'), title: 'our products' },
   ];
-
+  // from-green-50 to-green-100
   return (
-      <div className="bg-gradient-to-b from-green-50 to-green-100 min-h-screen">
+      <div className="bg-gradient-to-b  min-h-screen">
         {/* Video Carousel */}
-        <div className="w-[100vw] h-[80vh] overflow-hidden relative">
+        {/* <div className="w-[100vw] h-[80vh] overflow-hidden relative">
           <Carousel
               responsive={{
                 desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
@@ -82,13 +82,14 @@ function Home() {
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-start pl-8">
                     <h2 className="text-white text-3xl md:text-4xl font-bold text-center">
-                      {/*{video.title}*/}
-                    </h2>
-                  </div>
-                </div>
-            ))}
-          </Carousel>
-        </div>
+                      {/*{video.title}*/
+                    // </h2>
+        //           </div>
+        //         </div>
+        //     ))}
+        //   </Carousel>
+        // </div> */}
+        }
 
         <motion.div
             className="container mx-auto px-4 py-16"
@@ -97,15 +98,16 @@ function Home() {
             transition={{ duration: 1 }}
         >
           <motion.h1
-              className="text-5xl md:text-7xl font-bold text-center mb-8 text-primary"
+              className="text-5xl md:text-7xl font-bold text-center mb-8"
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              style={{color:'rgb(60, 61, 55)'}}
           >
             Taste the world, grown locally
           </motion.h1>
 
-          <motion.p className="text-xl text-center mb-12 text-secondary" {...fadeInUp}>
+          <motion.p className="text-xl text-center mb-12 text-secondary" {...fadeInUp} style={{color:'rgb(60, 61, 55)'}}>
             Experience the finest agricultural exports from the heart of India
           </motion.p>
 
