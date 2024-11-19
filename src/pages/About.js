@@ -15,7 +15,7 @@ import {
   Droplets,
   Coffee,
 } from 'lucide-react'
-
+//Vicky Autade
 export default function About() {
   const { scrollYProgress } = useScroll()
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1])
@@ -158,7 +158,7 @@ export default function About() {
             description:
               'Convenient and long-lasting, ideal for seasonings and processed foods. Our dehydration process locks in flavor while extending shelf life.',
           },
-          
+
           {
             name: 'Organic Spices',
             src: require('../image/spices.jpg'),
