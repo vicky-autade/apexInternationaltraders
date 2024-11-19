@@ -30,8 +30,9 @@ function Home() {
     { imgSrc: require('../image/peas.jpg'), title: 'Frozen Peas' },
     { imgSrc: require('../image/corn.jpg'), title: 'Frozen Sweet Corn' },
     { imgSrc: require('../image/onion.jpg'), title: 'Dehydrated Onions' },
-    // { imgSrc: require('../image/spices.jpg'), title: 'Organic Spices' },
-    // { imgSrc: require('../image/vegetables.jpg'), title: 'Fresh Vegetables' }
+    { imgSrc: require('../image/spices.jpg'), title: 'Organic Spices' },
+    { imgSrc: require('../image/vegetables.jpg'), title: 'Fresh Vegetables' },
+    { imgSrc: require('../image/lentils.jpg'), title: 'Fresh Vegetables' }
   ];
 
   return (
