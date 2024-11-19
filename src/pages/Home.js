@@ -32,7 +32,7 @@ function Home() {
     { imgSrc: require('../image/onion.jpg'), title: 'Dehydrated Onions' },
     { imgSrc: require('../image/spices.jpg'), title: 'Organic Spices' },
     { imgSrc: require('../image/vegetables.jpg'), title: 'Fresh Vegetables' },
-    { imgSrc: require('../image/lentils.jpg'), title: 'Fresh Vegetables' }
+    { imgSrc: require('../image/lentils.jpg'), title: 'pulses and lentils' }
   ];
 
   return (
