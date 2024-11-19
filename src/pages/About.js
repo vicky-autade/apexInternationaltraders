@@ -158,18 +158,21 @@ export default function About() {
             description:
               'Convenient and long-lasting, ideal for seasonings and processed foods. Our dehydration process locks in flavor while extending shelf life.',
           },
+          
           {
             name: 'Organic Spices',
             src: require('../image/spices.jpg'),
             description:
               'A range of certified organic spices, sourced from the finest farms in India. Perfect for adding authentic flavors to any cuisine.',
           },
+
           {
             name: 'Fresh Vegetables',
             src: require('../image/vegetables.jpg'),
             description:
               'A variety of fresh, locally sourced vegetables. We work directly with farmers to ensure the highest quality and freshness.',
           },
+
           {
             name: 'Pulses and Lentils',
             src: require('../image/lentils.jpg'),
