@@ -77,7 +77,7 @@ function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          <div className="relative h-[300px] overflow-hidden rounded-xl">
+          <div className="relative h-[500px] overflow-hidden rounded-xl">
             <AnimatePresence>
               {products.map((product, index) => (
                 <motion.div
@@ -86,7 +86,7 @@ function Home() {
                   initial={{ opacity: 0, x: 300 }}
                   animate={{ opacity: index === activeIndex ? 1 : 0, x: index === activeIndex ? 0 : -300 }}
                   exit={{ opacity: 0, x: -300 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 1 }}
                 >
                   <img
                     src={product.imgSrc}
@@ -94,7 +94,7 @@ function Home() {
                     className="w-full h-full object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <h2 className="text-white text-3xl font-bold">{product.title}</h2>
+                    {/* <h2 className="text-white text-3xl font-bold">{product.title}</h2> */}
                   </div>
                 </motion.div>
               ))}
